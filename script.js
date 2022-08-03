@@ -23,6 +23,9 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
     message = new Paho.MQTT.Message(document.querySelector("#message").value);
     message.destinationName = "/row/1/message";
     client.send(message);
+    input.value="";
+
 })
+
 
 
