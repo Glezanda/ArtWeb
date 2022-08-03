@@ -9,9 +9,7 @@ client.connect({
 function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
     console.log("onConnect");
-    message = new Paho.MQTT.Message("Ahoj");
-    message.destinationName = "/row/1/message";
-    client.send(message);
+  
 
     client.onMessageArrived = onMessageArrived;
     function onMessageArrived(message) {
@@ -21,4 +19,10 @@ function onConnect() {
     }
 
 }
+document.querySelector(".submit-btn").addEventListener("click", function () {
+    message = new Paho.MQTT.Message(document.querySelector("#message").value);
+    message.destinationName = "/row/1/message";
+    client.send(message);
+})
+
 
